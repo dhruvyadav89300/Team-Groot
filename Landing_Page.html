@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arete</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white">
+    <div class="flex">
+        <!-- Sidebar -->
+        <div class="w-[710px] h-screen bg-zinc-800 p-5">
+            <div class="mb-10">
+                <div class="flex items-center space-x-2 mb-5">
+                    <span class="fas fa-bars text-gray-400"></span>
+                    <!-- <h1 class="text-xl font-semibold">Home</h1> -->
+                </div>
+                <nav>
+                    <a href="#" class="flex items-center space-x-2 mb-5 text-gray-300">
+                        <span class="fas fa-brain"></span>
+                        <span class="text-sm">Home</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-2 mb-5 text-gray-300">
+                        <span class="fas fa-users"></span>
+                        <span class="text-sm">Quizzer</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-2 mb-5 text-gray-300">
+                        <span class="fas fa-clock"></span>
+                        <span class="text-sm">Pomodoro timer</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-2 mb-5 text-gray-300">
+                        <span class="fas fa-eye"></span>
+                        <span class="text-sm">Study Rooms</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-2 mb-5 text-gray-300">
+                        <span class="fas fa-clock"></span>
+                        <span class="text-sm">Text Summarizer</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-2 mb-5 text-gray-300">
+                        <span class="fas fa-clock"></span>
+                        <span class="text-sm">Discussions Forum</span>
+                    </a>
+                </nav>
+            </div>
+            <div class="absolute bottom-0 my-10">
+                <span class="fas fa-cog text-gray-400"></span>
+                <span class="text-gray-300 text-sm">Settings</span>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-10">
+            <div class="flex justify-between items-center mb-10">
+                <div class="flex space-x-4">
+                    <input type="search" placeholder="Search" class="rounded-full px-4 py-2 bg-zinc-800">
+                    <button class="text-gray-400">
+                        <span class="fas fa-search"></span>
+                    </button>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="fas fa-bell text-gray-400"></span>
+                    <span class="text-gray-200">Arete</span>
+                    <button class="text-gray-400">
+                        <span class="fas fa-question-circle"></span>
+                    </button>
+                </div>
+            </div>
+
+            <h2 class="text-3xl font-bold mb-5">Good morning, Dhruv</h2>
+            <div class="flex space-x-4 mb-10">
+                <input type="text" placeholder="Type Here.." class="flex-1 px-4 py-2 bg-zinc-800 rounded-full">
+                <button class="bg-yellow-300 text-gray-800 px-6 py-2 rounded-full font-bold">Explain</button>
+            </div>
+
+            <!-- Calendar and Trending Topics -->
+            <div class="flex mb-10 w-[63rem]">
+                <div class="grid grid-rows-2 grid-cols-1">
+                    <!-- Calendar -->
+                    <div class="w-[42rem] h-[5rem] rounded-xl bg-zinc-800 mr-5">
+                        <div class="bg-zinc-800 p-3  rounded-lg">
+                            <h3 class="text-gray-400 text-sm font-semibold mb-5">April, 2024</h3>
+                            <!-- Calendar dates would go here -->
+                            <div class="w-[40rem] text-sm">
+                                <div class="grid grid-cols-7 gap-4 mt-4">
+                                    <div class="border-r-2 text-center border-gray-700  p-4 text-center">
+                                        <p class="pr-2 pt-2">
+                                            Mon
+                                        </p>
+                                    </div>
+                                    <div class="border-r-2 border-gray-700  p-4 text-center">
+                                        <p class="pr-2 pt-2">
+                                            Tue
+                                        </p>
+                                    </div>
+                                    <div class="p-4 border-r-2 border-gray-700  text-center">
+                                        <p class="pr-2 pt-2">
+                                            Wed
+                                        </p>
+                                    </div>
+                                    <div class="p-4 border-r-2 border-gray-700  text-center">
+                                        <p class="pr-2 pt-2">
+                                            Thu
+                                        </p>
+                                    </div>
+                                    <div class="p-4 border-r-2 border-gray-700 text-center">
+                                        <div
+                                            class="h-10 w-10 bg-red-700 text-white flex items-center justify-center rounded-full">
+                                            <p class="opacity-100">
+                                                Fri
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="p-4 border-r-2 border-gray-700 text-center">
+                                        <p class="pr-2 pt-2">
+                                            Sat
+                                        </p>
+                                    </div>
+                                    <div class="p-4  text-center">
+                                        <p class="pr-2 pt-2">
+                                            Sun
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="w-[42rem] h-[10rem] rounded-xl bg-zinc-800 mr-5">
+                            <div class="bg-zinc-800 p-3 rounded-lg">
+                                <h3 class="text-gray-400 text-sm font-semibold mb-5">Another Section</h3>
+                                <!-- Content for the second section would go here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Trending Topics -->
+                <div class="w-[20rem] ml-10 bg-zinc-800 rounded-xl h-[20rem]">
+                    <div class="bg-zinc-800 p-5 rounded-lg">
+                        <h3 class="text-gray-400 text-sm mb-5">Trending Topics</h3>
+                        <!-- Trending topics list would go here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Font Awesome Script -->
+    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
