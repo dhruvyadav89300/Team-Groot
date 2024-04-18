@@ -1,0 +1,43 @@
+
+name: multi-stage-deploy.yml
+
+on:
+  push:
+    branches:
+      - production
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: npm install
+      - name: Build application
+        run: npm run build
+
+  stage:
+    runs-on: staging
+    needs: build
+    steps:
+      - name: Deploy application
+        run: npm run deploy
+      - name: Configure environment variables
+        run: export API_URL=${{ secrets.API_URL }} && export DB_CONNECTION=${{ secrets.DB_CONNECTION }}
+
+  production-deploy:
+    runs-on: production
+    needs: build
+    steps:
+      - name: Deploy application
+        run: npm run deploy
+      - name: Access secrets manager
+        run: npm run get-secrets
