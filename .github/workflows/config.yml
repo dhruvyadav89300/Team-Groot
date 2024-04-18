@@ -1,44 +1,45 @@
 
+
 name: multi-stage-deploy
 
 on:
   push:
-    branches: 
+    branches:
       - production
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x]
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '14'
       - name: Install dependencies
         run: npm install
-      - name: Build application bundle
+      - name: Build application
         run: npm run build
+
   stage:
     runs-on: staging
     needs: build
     steps:
-      - uses: actions/checkout@v2
-      - name: Deploy to staging environment
-        uses: some-deployment-action
-        with:
-          application_bundle: ${{ needs.build.outputs.application_bundle }}
-          environment_variables: ${{ secrets.STAGING_ENV_VARS }}
+      - name: Deploy application
+        run: npm run deploy
+      - name: Configure environment variables
+        run: |
+          export API_URL="staging-api-url"
+          export DB_CONNECTION="staging-db-connection"
+
   production-deploy:
     runs-on: production
     needs: build
     steps:
-      - uses: actions/checkout@v2
-      - name: Deploy to production environment
-        uses: some-deployment-action
-        with:
-          application_bundle: ${{ needs.build.outputs.application_bundle }}
-         
+      - name: Deploy application
+        run: npm run deploy
+      - name: Configure environment variables
+        run: |
+          export API_URL=${{ secrets.PROD_API_URL }}
+          export DB_CONNECTION=${{ secrets.PROD_DB_CONNECTION }}
